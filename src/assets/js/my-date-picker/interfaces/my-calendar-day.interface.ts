@@ -5,6 +5,7 @@ export interface IMyCalendarDay {
     dateObj: IMyDate;
     cmo: number;
     currDay: boolean;
+    weekDay: string;
     disabled: boolean;
     markedDate: IMyMarkedDate;
     highlight: boolean;

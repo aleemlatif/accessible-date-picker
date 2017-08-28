@@ -250,4 +250,7 @@ export class UtilService {
   getWeekdayIndex(wd: string) {
     return this.weekDays.indexOf(wd);
   }
+  getWeekdayFullIndex(wd: string) {
+    return this.weekDaysFull.indexOf(wd);
+  }
 }
