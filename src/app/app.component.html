@@ -1,0 +1,9 @@
+<h1 class="align-center">
+  {{heading}}
+</h1>
+
+<form #myForm="ngForm" novalidate>
+
+  <my-date-picker name="mydate" [options]="myDatePickerOptions" [(ngModel)]="model" required></my-date-picker>
+
+</form>
