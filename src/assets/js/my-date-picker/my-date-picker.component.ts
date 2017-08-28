@@ -415,7 +415,7 @@ export class MyDatePicker implements OnChanges, ControlValueAccessor {
     }
     this.setOptions();
     let weekDays: Array<string> = this.utilService.getWeekDays();
-    let weekDaysFull: Array<string> = this.utilService.getWeekDays();
+    let weekDaysFull: Array<string> = this.utilService.getWeekDaysFull();
     this.isTodayDisabled();
     this.dayIdx = weekDays.indexOf(this.opts.firstDayOfWeek);
     if (this.dayIdx !== -1) {
@@ -502,6 +502,7 @@ export class MyDatePicker implements OnChanges, ControlValueAccessor {
     }
 
     this.weekDays.length = 0;
+    this.weekDaysFull.length = 0;
     this.parseOptions();
 
     let dmChange = false;
@@ -815,6 +816,12 @@ export class MyDatePicker implements OnChanges, ControlValueAccessor {
     return weekDays[this.utilService.getDayNumber(date)];
   }
 
+  getWeekdayFull(date: IMyDate): string {
+    // Get weekday Full: Sunday, Monday, Tuesday, Wednesday ...
+    const weekDaysFull: Array<string> = this.utilService.getWeekDaysFull();
+    return weekDaysFull[this.utilService.getDayNumber(date)];
+  }
+
   getDate(year: number, month: number, day: number): Date {
     // Creates a date object from given year, month and day
     return new Date(year, month - 1, day, 0, 0, 0, 0);
@@ -889,7 +896,11 @@ export class MyDatePicker implements OnChanges, ControlValueAccessor {
       let weekNbr: number = this.opts.showWeekNumbers && this.opts.firstDayOfWeek === 'mo' ? this.utilService.getWeekNumber(week[0].dateObj) : 0;
       this.dates.push({week: week, weekNbr: weekNbr});
     }
+
+    console.log(this.weekDaysFull);
     console.log(this.dates);
+
+
     this.setHeaderBtnDisabledState(m, y);
 
     if (notifyChange) {
