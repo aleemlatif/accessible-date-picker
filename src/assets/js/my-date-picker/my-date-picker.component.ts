@@ -898,7 +898,8 @@ export class MyDatePicker implements OnChanges, ControlValueAccessor {
       let weekNbr: number = this.opts.showWeekNumbers && this.opts.firstDayOfWeek === 'mo' ? this.utilService.getWeekNumber(week[0].dateObj) : 0;
       this.dates.push({week: week, weekNbr: weekNbr});
     }
-    //console.log(this.dates);
+
+   // console.log(this.dates);
 
     this.setHeaderBtnDisabledState(m, y);
 
